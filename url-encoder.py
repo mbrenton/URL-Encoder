@@ -1,25 +1,32 @@
-#Python Script to encode a string to be compatible in a URL
-#Github: https://github.com/mbrenton/URL-Encoder
+#!/usr/bin/env python3
 
-#import pyperclip
+# Python Script to encode a string to be compatible in a URL
+# Github: https://github.com/mbrenton/URL-Encoder
+
+import urllib.parse
+import sys
 
 def main():
-    str = input("String: ")
 
-    #Replacing " " to "%20"
-    encoded_str = str.replace(" ", "%20")
+    # If argument is specified, use it, otherwise ask for input
+    if len(sys.argv) > 1:
+        str = sys.argv[1]
+    else:
+        str = input("Enter Command/Shell/URL: ")
 
     #This is for curl command, does not replace first space in command, if wanna paste in full command.
-    if encoded_str.startswith("curl"):
-        encoded_str = encoded_str.replace("%20", " ", 1)
+    if str.startswith("curl") or str.startswith("http"):
+        code, command = str.split('=', 1)
+        print("URL/curl: " + code + '=')
+        print("Command:", command)
+        str = urllib.parse.quote(command, safe='.')
+        new_str = f"{code}={str}"
+        print("Encoded Command/URL:", new_str)
 
-    print("Encoded String:", encoded_str)
-
-    #Copy to clipboard
-
-    #pyperclip.copy(encoded_str)
-    #print("URL Encoded String has been copied to clipboard...")
-    #spam = pyperclip.paste()
+    #Just Command
+    else:
+        new_str = urllib.parse.quote(str, safe='.')
+        print("Encoded Command:", str)
 
 if __name__ == "__main__":
     main()
