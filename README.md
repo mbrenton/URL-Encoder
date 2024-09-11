@@ -2,7 +2,7 @@
 
 *For educational and authorized security research purposes only.*
 
-## Exploit Author
+## Author
 [@mbrenton](https://github.com/mbrenton)
 
 ## Description
