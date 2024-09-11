@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-
 # Python Script to encode a string to be compatible in a URL
 # Github: https://github.com/mbrenton/URL-Encoder
 
+# Imports
 import urllib.parse
 import sys
 
